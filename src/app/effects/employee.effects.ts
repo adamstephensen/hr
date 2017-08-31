@@ -6,6 +6,7 @@ import * as employee from '../actions/employee.actions';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/of';
 
 @Injectable()
 export class EmployeeEffects {
@@ -18,7 +19,7 @@ export class EmployeeEffects {
       .ofType(employee.LOAD)
       .switchMap(payload => this.employeeService.get()
         // If successful, dispatch success action with result
-        .map(res => ({ type: employee.LOAD_SUCCESS, payload: res.json() }))
+        .map(result => ({ type: employee.LOAD_SUCCESS, payload: result }))
         // If request fails, dispatch failed action
         .catch(() => Observable.of({ type: employee.LOAD_FAIL}))
       );

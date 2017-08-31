@@ -1,14 +1,15 @@
 import * as employee from '../actions/employee.actions';
+import { Employee } from '../models/employee/employee';
 
 export interface State {
-  loading: boolean;
-  entities: { [id: string]: any };
+  loading: boolean  ;
+  entities: Employee[];
   result: string[];
 }
 
 export const initialState: State = {
   loading: false,
-  entities: {},
+  entities: [],
   result: []
 }
 

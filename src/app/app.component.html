@@ -18,4 +18,8 @@
   </li>
 </ul>
 
+<div *ngFor="let employee of employees$ | async">
+{{employee.firstName}}
+</div>
+
 <router-outlet></router-outlet>
