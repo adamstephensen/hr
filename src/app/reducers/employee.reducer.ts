@@ -2,16 +2,14 @@ import * as employee from '../actions/employee.actions';
 import { Employee } from '../models/employee/employee';
 
 export interface State {
-  loading: boolean  ;
+  loading: boolean;
   entities: Employee[];
-  result: string[];
 }
 
 export const initialState: State = {
   loading: false,
-  entities: [],
-  result: []
-}
+  entities: []
+};
 
 export function reducer(state = initialState, action: employee.Actions): State {
   switch (action.type) {
@@ -19,7 +17,7 @@ export function reducer(state = initialState, action: employee.Actions): State {
       return {
         ...state,
         loading: true
-      }
+      };
     }
 
     case employee.LOAD_SUCCESS: {
@@ -27,10 +25,11 @@ export function reducer(state = initialState, action: employee.Actions): State {
       return {
         ...state,
         loading: false,
+        entities: action.payload
       };
     }
 
-     case employee.LOAD_FAIL: {
+    case employee.LOAD_FAIL: {
 
       return {
         ...state,

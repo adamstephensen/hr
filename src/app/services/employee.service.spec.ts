@@ -1,67 +1,67 @@
-import { TestBed, inject } from '@angular/core/testing';
-import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod } from '@angular/http';
-import { MockBackend, MockConnection } from '@angular/http/testing';
-import { EmployeeService } from '../services/employee.service';
+// import { TestBed, inject } from '@angular/core/testing';
+// import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod } from '@angular/http';
+// import { MockBackend, MockConnection } from '@angular/http/testing';
+// import { EmployeeService } from '../services/employee.service';
 
-describe('Service: EmployeeService', () => {
-  let service: EmployeeService = null;
-  let backend: MockBackend = null;
+// describe('Service: EmployeeService', () => {
+//   let service: EmployeeService = null;
+//   let backend: MockBackend = null;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [
-        MockBackend,
-        BaseRequestOptions,
-        {
-          provide: Http,
-          useFactory: (backendInstance: MockBackend, defaultOptions: BaseRequestOptions) => {
-            return new Http(backendInstance, defaultOptions);
-          },
-          deps: [ MockBackend, BaseRequestOptions ]
-        },
-        EmployeeService
-      ]
-    });
-  });
+//   beforeEach(() => {
+//     TestBed.configureTestingModule({
+//       providers: [
+//         MockBackend,
+//         BaseRequestOptions,
+//         {
+//           provide: Http,
+//           useFactory: (backendInstance: MockBackend, defaultOptions: BaseRequestOptions) => {
+//             return new Http(backendInstance, defaultOptions);
+//           },
+//           deps: [ MockBackend, BaseRequestOptions ]
+//         },
+//         EmployeeService
+//       ]
+//     });
+//   });
 
-  beforeEach(inject([EmployeeService, MockBackend], (employeeService: EmployeeService, mockBackend: MockBackend) => {
-    service = employeeService;
-    backend = mockBackend;
-  }));
+//   beforeEach(inject([EmployeeService, MockBackend], (employeeService: EmployeeService, mockBackend: MockBackend) => {
+//     service = employeeService;
+//     backend = mockBackend;
+//   }));
 
-  // --------------------Example------------------------
-  
-  // const data = {
-  //   'title': 'Book Title',
-  //   'author': 'John Smith',
-  //   'volumeId': '12345'
-  // };
+//   // --------------------Example------------------------
 
-  // const books = {
-  //   items: [
-  //     {id: '12345', volumeInfo: {title: 'Title'}},
-  //     {id: '67890', volumeInfo: {title: 'Another Title'}}
-  //   ]
-  // };
+//   // const data = {
+//   //   'title': 'Book Title',
+//   //   'author': 'John Smith',
+//   //   'volumeId': '12345'
+//   // };
 
-  // const queryTitle = 'Book Title';
+//   // const books = {
+//   //   items: [
+//   //     {id: '12345', volumeInfo: {title: 'Title'}},
+//   //     {id: '67890', volumeInfo: {title: 'Another Title'}}
+//   //   ]
+//   // };
 
-  // it('should call the search api and return the search results', (done) => {
-  //   backend.connections.subscribe((connection: MockConnection) => {
-  //     const options = new ResponseOptions({
-  //       body: JSON.stringify(books)
-  //     });
-  //     connection.mockRespond(new Response(options));
-  //     expect(connection.request.method).toEqual(RequestMethod.Get);
-  //     expect(connection.request.url).toEqual(`https://www.googleapis.com/books/v1/volumes?q=${queryTitle}`);
-  //   });
+//   // const queryTitle = 'Book Title';
 
-  //   service
-  //     .searchBooks(queryTitle)
-  //     .subscribe((res) => {
-  //       expect(res).toEqual(books.items);
-  //       done();
-  //     });
-  // });
+//   // it('should call the search api and return the search results', (done) => {
+//   //   backend.connections.subscribe((connection: MockConnection) => {
+//   //     const options = new ResponseOptions({
+//   //       body: JSON.stringify(books)
+//   //     });
+//   //     connection.mockRespond(new Response(options));
+//   //     expect(connection.request.method).toEqual(RequestMethod.Get);
+//   //     expect(connection.request.url).toEqual(`https://www.googleapis.com/books/v1/volumes?q=${queryTitle}`);
+//   //   });
 
-});
+//   //   service
+//   //     .searchBooks(queryTitle)
+//   //     .subscribe((res) => {
+//   //       expect(res).toEqual(books.items);
+//   //       done();
+//   //     });
+//   // });
+
+// });

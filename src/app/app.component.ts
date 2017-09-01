@@ -1,7 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-
-import {Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 
 import * as fromRoot from '../app/reducers';
 import * as employee from '../app/actions/employee.actions';
@@ -15,14 +14,13 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'abc';
   employees$: Observable<Employee[]>;
 
   constructor(private store: Store<fromRoot.State>) {
-        this.employees$ = store.select(s => s.employees.entities);
+     this.employees$ = store.select(s => s.employees.entities);
   }
 
   ngOnInit(): void {
-      this.store.dispatch(new employee.LoadAction);
+    this.store.dispatch(new employee.LoadAction());
   }
 }

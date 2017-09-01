@@ -1,3 +1,6 @@
+// https://alligator.io/angular/ngrx-store-redux-state-management/
+// https://blog.dmbcllc.com/upgrade-ngrx-4-x/
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -8,8 +11,9 @@ import { EmployeeService } from './services/employee.service';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { reducer } from './reducers';
+import { reducers } from './reducers';
 import { EmployeeEffects } from './effects/employee.effects';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,13 +21,17 @@ import { EmployeeEffects } from './effects/employee.effects';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-     StoreModule.provideStore(reducer),
-      StoreDevtoolsModule.instrumentOnlyWithExtension(),
-      EffectsModule.run(EmployeeEffects),
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([EmployeeEffects]),
+    // Note that you must instrument after importing StoreModule
+    StoreDevtoolsModule.instrument({
+      maxAge: 25 //  Retains last 25 states
+    })
   ],
   providers: [
-    EmployeeService
+    EmployeeService,
   ],
   bootstrap: [AppComponent]
 })
